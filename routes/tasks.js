@@ -41,3 +41,18 @@ router.post('/updates/:id', (req, res) => {
     res.redirect('/')
 })
 
+// delete a task
+router.post('/delete/id', (req, res) => {
+    console.log("POST /tasks/delete - Request Params: ", req.params)
+    const {id} = req.params
+    const taskIndex = tasks.findIndex(t => t.id ===parseInt(id))
+    if(taskIndex === -1){
+        console.log("POST tasks/delete - Task Not Found for ID: ", id)
+        return res.status(404).json({ message: "Task not found"})
+    }
+    const deletedTask = tasks.splice(taskIndex, 1)
+    console.log("POST /tasks/delete - Task Deleted: ", deletedTask)
+    res.redirect('/')
+}) 
+
+module.export = router
