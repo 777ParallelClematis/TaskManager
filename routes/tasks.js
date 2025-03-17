@@ -24,3 +24,20 @@ router.post('/', (req, res) => {
     console.log("POST / tasks - Task add: ", newTask)
     res.redirect('/')
 })
+
+//update an existing task
+router.post('/updates/:id', (req, res) => {
+    console.log("POST / tasks/update = Request Params: ", req.params, "Body:", req.body)
+    const {id} = req.params
+    const {completed} = req.body
+    const taskIndex = findIndex(t => t.id === parseInt(id))
+
+    if(taskIndex === -1){
+        console.log("POST / tasks/update - Task not found for ID:", id)
+        return res.status(404).json({ message: "Task not found"})
+    }
+    tasks[taskIndex].completed = completed = 'true'
+    console.log("POST / tasks/update - Task Updated: ", tasks[taskIndex])
+    res.redirect('/')
+})
+
