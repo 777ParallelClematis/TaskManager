@@ -77,5 +77,5 @@ app.use(express.static(path.join(__dirname, 'public')))
 // start the server and listen on the defined port
 
 app.listen(port, () => {
-    console.log(`Task Manager is running at https://localhost:${port}`) // log server start
+    console.log(`Task Manager is running at https://localhost:${PORT}`) // log server start
 })
