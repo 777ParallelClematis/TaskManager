@@ -26,10 +26,19 @@ app.listen(PORT, () => {
 
 /*
 Erin:
+Missing middleware in the new one 
+Uses taskRoutes for all the routing - its global
+Routes are more specific in the new one
+New App.js missing all the error checking 
+
+Ali:
+As for the app.js the middleware is Globally Defined in app.js where in the routes/tasks.js  it's more of Route-Specific Middleware
+
+Justin: 
 All code to use the http methods is handled in the specific route, instead of all in one main file.
 The only code in the app.js is middleware and a get method to render the home page. The new app also
 defines at which path the code should be read for the new route.
 
-Ali:
-Both app.js and the task.js do have their middlewares, Globally Defined in app.js where in the routes/tasks.js  it's more of Route-Specific Middleware
+Ali: 
+both app.js and the task.js do have their middlewares, Globally Defined in app.js where in the routes/tasks.js  it's more of Route-Specific Middleware
 */
